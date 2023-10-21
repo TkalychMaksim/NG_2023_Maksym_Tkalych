@@ -6,7 +6,7 @@ while first_number < interval_end_number+1:
     numbers_dict[first_number] = []
     first_number += 1
 for key in numbers_dict.keys():
-    for second_number in range(1, 9+1):
+    for second_number in range(1, interval_end_number+1):
         if key % second_number == 0:
             numbers_dict[key].append(second_number)
 for key in numbers_dict.keys():
