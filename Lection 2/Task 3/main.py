@@ -2,15 +2,11 @@ interval_end_number = int(input("Enter the last number of interval: "))
 numbers_dict = {}
 first_number = 1
 prime_numbers = [1]
-while first_number < interval_end_number+1:
-    numbers_dict[first_number] = []
-    first_number += 1
-for key in numbers_dict.keys():
-    for second_number in range(1, interval_end_number+1):
-        if key % second_number == 0:
-            numbers_dict[key].append(second_number)
-for key in numbers_dict.keys():
-    print(f"{key}: {', '.join(str(number)for number in numbers_dict[key])}")
+for number in range(1, interval_end_number+1):
+    numbers_dict[number] = []
+    divisors = [divisor for divisor in range(1, number+1) if number % divisor == 0]
+    numbers_dict[number] = divisors
+    print(f"{number}: {', '.join(str(divisor) for divisor in numbers_dict[number])}")
 for key in numbers_dict.keys():
     if len(numbers_dict[key]) == 2:
         prime_numbers.append(key)
