@@ -16,8 +16,10 @@ def user_register():
         password = request.form.get('password')
         confirmed_password = request.form.get('confirmed_password')
         if password == confirmed_password:
-            register_user(username, password)
-            return redirect('/send')
+            if register_user(username, password):
+                return redirect('/send')
+            else:
+                return render_template('register.html', error='Error: user with this nickname is already registered')
         else:
             return render_template('register.html', error='Error: Passwords do not match')
     if request.method == "GET":

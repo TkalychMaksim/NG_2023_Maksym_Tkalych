@@ -21,8 +21,10 @@ def register_user(username, password):
         db.session.add(user)
         db.session.flush()
         db.session.commit()
+        return True
     except Exception as error:
         print(error)
+        return False
 
 
 def login_user(username, password):
