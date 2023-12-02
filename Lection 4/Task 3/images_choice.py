@@ -1,8 +1,10 @@
 import os
 images_list = sorted(os.listdir('static/images'))
+current_index = 0
 
 
-def image_index(button_click=None, current_index=0):
+def image_index(button_click=None,):
+    global current_index
     if button_click == 'previous':
         current_index -= 1
         if current_index < 0:

@@ -21,7 +21,18 @@
       width: 100%;
       height: 100%;
 }
+.image_container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
+    .image_container img {
+      width: auto;
+      height: auto;
+    }
 .button1 {background-color: #04AA6D;}
 .button2 {background-color: #008CBA;}
 </style>
@@ -34,5 +45,8 @@
         <button class="button button2" onclick="document.getElementById('button_clicked').value='next'" type="submit">Next</button>
     </div>
 </form>
+  <div class="image_container">
+    <img src="{{ url_for('static', filename=path) }}">
+  </div>
 </body>
 </html>
