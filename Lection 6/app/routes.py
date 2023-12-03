@@ -68,7 +68,7 @@ def render_chat_page():
     return redirect('/chat')
 def add_messages(message):
     username = session.get('username')
-    add_message(username=username, message=message, message_date=datetime.utcnow())
+    add_message(username=username, message=message, message_date=datetime.now())
 @app.route('/get_messages')
 def get_messages():
     messages = Messages.query.order_by(Messages.message_date.asc()).all()
